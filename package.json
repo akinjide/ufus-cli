@@ -1,0 +1,40 @@
+{
+  "name": "ufus-cli",
+  "version": "1.0.0",
+  "description": "ultra fast URL shortener in your terminal!",
+  "bin": {
+    "ufus": "./bin/ufus.js"
+  },
+  "scripts": {
+    "start": "node ./bin/aboki"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akinjide/ufus-cli.git"
+  },
+  "keywords": [
+    "node",
+    "shortener",
+    "cli",
+    "utility",
+    "url",
+    "fast"
+  ],
+  "author": "Akinjide Bankole <r@akinjide.me>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "chalk": "^2.3.1",
+    "clui": "^0.3.6",
+    "commander": "^2.14.1",
+    "ramda": "^0.25.0",
+    "request": "^2.83.0"
+  },
+  "engines": {
+    "node": ">=4.4.7 <7.0.0",
+    "yarn": "0.23.4"
+  },
+  "bugs": {
+    "url": "https://github.com/akinjide/ufus-cli/issues"
+  },
+  "homepage": "https://github.com/akinjide/ufus-cli"
+}

@@ -1,0 +1,40 @@
+
+  Examples:
+
+    o Shorten Link
+
+      The following shorten command shortens a link:
+
+        ufus --output json shorten https://media.giphy.com/media/nhZxxIIMoLyqA/giphy.gif
+
+      Output:
+
+        {
+          "hash": "kGnG",
+          "long_url": "https://media.giphy.com/media/nhZxxIIMoLyqA/giphy.gif",
+          "short_url": "http://www.ufus.cc/kGnG"
+        }
+
+    o Expand shortened link
+
+      The following swell command expands shortened link:
+
+        ufus --output json swell http://www.ufus.cc/kGnG
+
+      Output:
+
+        {
+          "hash": "kGnG",
+          "long_url": "https://media.giphy.com/media/nhZxxIIMoLyqA/giphy.gif",
+          "clicks": "0"
+        }
+
+Written by Akinjide Bankole <https://www.akinjide.me/>. Like the software? Star
+on Github <https://github.com/akinjide/ufus-cli>
+
+██╗   ██╗███████╗██╗   ██╗███████╗
+██║   ██║██╔════╝██║   ██║██╔════╝
+██║   ██║█████╗  ██║   ██║███████╗
+██║   ██║██╔══╝  ██║   ██║╚════██║
+╚██████╔╝██║     ╚██████╔╝███████║
+ ╚═════╝ ╚═╝      ╚═════╝ ╚══════╝
