@@ -73,7 +73,7 @@ Ufus.prototype._request = function(opts, callback) {
   }
 
   if (typeof opts === 'object') {
-  	dumps = R.merge(dumps, opts)
+    dumps = R.merge(dumps, opts)
   }
 
   method = dumps.method || 'GET'
@@ -123,12 +123,12 @@ Ufus.prototype._request = function(opts, callback) {
  */
 
 Ufus.prototype._parse = function(content) {
-	try {
-		return R.pick(['hash', 'long_url', 'short_url', 'clicks'], JSON.parse(content))
-	} catch (error) {
-		log(error, 'error')
-		process.exit(1)
-	}
+  try {
+    return R.pick(['hash', 'long_url', 'short_url', 'clicks'], JSON.parse(content))
+  } catch (error) {
+    log(error, 'error')
+    process.exit(1)
+  }
 }
 
 
@@ -144,29 +144,29 @@ Ufus.prototype._parse = function(content) {
  */
 
 Ufus.prototype._responseHandler = function(err, response) {
-	if (err) {
-		log('Oops! Catastrophic Failure', 'error')
-		log('If the problem persists, please email r@akinjide.me.', 'error')
-		process.exit(1)
-	} else if (R.isEmpty(response)) {
-		log('Error connecting. Please check network and try again.', 'warn')
-		log('If the problem persists, please email r@akinjide.me.', 'warn')
-		process.exit(1)
-	} else {
-		var content = this._parse(response)
+  if (err) {
+    log('Oops! Catastrophic Failure', 'error')
+    log('If the problem persists, please email r@akinjide.me.', 'error')
+    process.exit(1)
+  } else if (R.isEmpty(response)) {
+    log('Error connecting. Please check network and try again.', 'warn')
+    log('If the problem persists, please email r@akinjide.me.', 'warn')
+    process.exit(1)
+  } else {
+    var content = this._parse(response)
 
-		switch (this.options.output) {
-			case 'plain':
-				log(content[this.options.key], 'log')
-				break;
-			case 'json':
-				log(JSON.stringify(content, null, 2), 'log')
-				break
-			default:
-				log(this.options.output + '(1) does not exist. try --help or run with --ouput json\n', 'warn')
-				process.exit(1)
-		}
-	}
+    switch (this.options.output) {
+      case 'plain':
+        log(content[this.options.key], 'log')
+        break;
+      case 'json':
+        log(JSON.stringify(content, null, 2), 'log')
+        break
+      default:
+        log(this.options.output + '(1) does not exist. try --help or run with --ouput json\n', 'warn')
+        process.exit(1)
+    }
+  }
 }
 
 
@@ -182,11 +182,11 @@ Ufus.prototype._responseHandler = function(err, response) {
  */
 
 Ufus.prototype.shorten = function(longUrl, options) {
-	this.options = R.merge(options, { key: 'short_url' })
+  this.options = R.merge(options, { key: 'short_url' })
   this._request({
-  	path: 'shorten',
-  	method: 'POST',
-  	data: { 'long_url': longUrl }
+    path: 'shorten',
+    method: 'POST',
+    data: { 'long_url': longUrl }
   }, this._responseHandler.bind(this))
 }
 
@@ -203,11 +203,11 @@ Ufus.prototype.shorten = function(longUrl, options) {
  */
 
 Ufus.prototype.swell = function(shortUrl, options) {
-	this.options = R.merge(options, { key: 'long_url' })
+  this.options = R.merge(options, { key: 'long_url' })
   this._request({
-  	path: 'burst',
-  	method: 'POST',
-  	data: { 'short_url': shortUrl }
+    path: 'burst',
+    method: 'POST',
+    data: { 'short_url': shortUrl }
   }, this._responseHandler.bind(this))
 }
 
@@ -216,7 +216,7 @@ Ufus.prototype.swell = function(shortUrl, options) {
  * Handle programmer input, and do stuffs.
  */
 
-var ufus = new Ufus('1.0.0')
+var ufus = new Ufus('1.0.1')
 
 program
   .version(ufus.version)
