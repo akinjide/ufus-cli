@@ -216,7 +216,7 @@ Ufus.prototype.swell = function(shortUrl, options) {
  * Handle programmer input, and do stuffs.
  */
 
-var ufus = new Ufus('1.0.1')
+var ufus = new Ufus('1.0.2')
 
 program
   .version(ufus.version)
